@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anymd"
+version = "0.1.0"
+description = "多格式与 Markdown 双向转换：为 AI 读文档、为交付出文档"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "markitdown[pdf,docx,pptx,xlsx,xls,outlook]>=0.1.8",
+    "pymupdf4llm>=1.28",
+    "markdownify>=1.2",
+    "mcp>=2.0",
+]
+
+[project.scripts]
+anymd = "anymd.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["anymd*"]
+
+[tool.setuptools.package-data]
+anymd = ["assets/*"]
